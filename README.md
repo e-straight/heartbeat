@@ -1,6 +1,6 @@
 # Heartbeat 💓
 
-AI-powered project board updates for GitHub. When PRs merge, issues close, or comments are posted, Heartbeat writes a concise status summary to your GitHub Project.
+Never miss a beat. Automatically surface and summarize what's actually happening in your codebase, powered by GitHub Agentic Workflows.
 
 Built with [gh-aw](https://github.com/github/gh-aw): distributable agentic workflows for GitHub.
 
