@@ -2,7 +2,7 @@
 
 AI-powered project board updates for GitHub. When PRs merge, issues close, or comments are posted, Heartbeat writes a concise status summary to your GitHub Project.
 
-Built with [gh-aw](https://github.com/github/gh-aw) — distributable agentic workflows for GitHub.
+Built with [gh-aw](https://github.com/github/gh-aw): distributable agentic workflows for GitHub.
 
 ## Quick start 🚀
 
@@ -28,11 +28,11 @@ git push
 
 ## What it tracks 📡
 
-- **PR merged** — summarizes the change, author, reviewers, and target branch
-- **PR closed without merge** — notes it wasn't merged and why
-- **Issue closed** — captures resolution, who closed it, and assignees
-- **Issue edited** — reports what changed (title, body, labels)
-- **Comments** — summarizes new comments on issues and PRs with a direct link
+- **PR merged**: summarizes the change, author, reviewers, and target branch
+- **PR closed without merge**: notes it wasn't merged and why
+- **Issue closed**: captures resolution, who closed it, and assignees
+- **Issue edited**: reports what changed (title, body, labels)
+- **Comments**: summarizes new comments on issues and PRs with a direct link
 
 ## Prerequisites 📋
 
