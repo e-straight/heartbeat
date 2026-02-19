@@ -2,7 +2,7 @@
 
 Never miss a beat. Automatically surface and summarize what's actually happening in your codebase, powered by GitHub Agentic Workflows.
 
-Built with [gh-aw](https://github.com/github/gh-aw): distributable agentic workflows for GitHub.
+**[Landing page](https://e-straight.github.io/heartbeat/)** · Built with [gh-aw](https://github.com/github/gh-aw): distributable agentic workflows for GitHub.
 
 ## Quick start 🚀
 
