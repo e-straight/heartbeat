@@ -615,9 +615,12 @@
         <div class="step-card">
           <div class="step-number">1</div>
           <div class="step-content">
-            <h3>Create your token</h3>
-            <p>You need a personal access token so the workflow can post to your project board. Click the button below. It opens GitHub's token page with the correct scopes (<strong>project</strong> and <strong>read:org</strong>) already checked for you.</p>
-            <a href="https://github.com/settings/tokens/new?description=gh-aw-heartbeat&amp;scopes=project,read:org" target="_blank" rel="noopener noreferrer" class="token-btn" data-id="cta-create-token">Create token (scopes pre-selected)</a>
+            <h3>Install the workflow</h3>
+            <p>Use the <code>gh-aw</code> extension to add the workflow to your repository.</p>
+            <div class="code-block">
+              <pre>gh aw add-wizard e-straight/heartbeat/heartbeat</pre>
+              <button class="copy-btn" data-id="copy-step-1" onclick="copyCode(this)">Copy</button>
+            </div>
           </div>
         </div>
 
@@ -625,12 +628,9 @@
         <div class="step-card">
           <div class="step-number">2</div>
           <div class="step-content">
-            <h3>Install the workflow</h3>
-            <p>Use the <code>gh-aw</code> extension to add the workflow to your repository.</p>
-            <div class="code-block">
-              <pre>gh aw add-wizard e-straight/heartbeat/heartbeat</pre>
-              <button class="copy-btn" data-id="copy-step-1" onclick="copyCode(this)">Copy</button>
-            </div>
+            <h3>Create your token</h3>
+            <p>You need a personal access token so the workflow can post to your project board. Click the button below. It opens GitHub's token page with the correct scopes (<strong>project</strong> and <strong>read:org</strong>) already checked for you.</p>
+            <a href="https://github.com/settings/tokens/new?description=gh-aw-heartbeat&amp;scopes=project,read:org" target="_blank" rel="noopener noreferrer" class="token-btn" data-id="cta-create-token">Create token (scopes pre-selected)</a>
           </div>
         </div>
 
@@ -647,7 +647,7 @@ gh aw secrets set GH_AW_TARGET_PROJECT \
               <button class="copy-btn" data-id="copy-step-2" onclick="copyCode(this)">Copy</button>
             </div>
             <div class="code-block">
-              <pre><span class="comment"># Set the token you created in Step 1</span>
+              <pre><span class="comment"># Set the token you created in Step 2</span>
 gh aw secrets set GH_AW_PROJECT_GITHUB_TOKEN --value "ghp_your_token_here"</pre>
               <button class="copy-btn" data-id="copy-step-3" onclick="copyCode(this)">Copy</button>
             </div>
