@@ -725,10 +725,12 @@ git push</pre>
           <a href="https://cli.github.com" target="_blank" rel="noopener noreferrer">GitHub CLI</a> (<code>gh</code>), version 2.0 or later
         </li>
         <li>
-          The <code>gh-aw</code> extension installed:
-          <div class="code-block" style="margin-top: 8px;">
-            <pre>gh extension install github/gh-aw</pre>
-            <button class="copy-btn" data-id="copy-prereq" onclick="copyCode(this)">Copy</button>
+          <div>
+            The <code>gh-aw</code> extension installed:
+            <div class="code-block" style="margin-top: 8px;">
+              <pre>gh extension install github/gh-aw</pre>
+              <button class="copy-btn" data-id="copy-prereq" onclick="copyCode(this)">Copy</button>
+            </div>
           </div>
         </li>
         <li>
@@ -790,7 +792,7 @@ git push</pre>
   <!-- ===== Copy Button Script ===== -->
   <script>
     function copyCode(btn) {
-      var pre = btn.parentElement.querySelector('pre');
+      var pre = btn.parentElement.querySelector('pre') || btn.parentElement.querySelector('code');
       var text = pre.textContent;
       navigator.clipboard.writeText(text).then(function() {
         btn.textContent = 'Copied!';
