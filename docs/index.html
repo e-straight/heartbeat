@@ -721,22 +721,14 @@ git push</pre>
       <p class="section-subtitle">Make sure you have these tools installed before running the setup commands.</p>
 
       <ul class="prereqs-list">
-        <li>
-          <a href="https://cli.github.com" target="_blank" rel="noopener noreferrer">GitHub CLI</a> (<code>gh</code>), version 2.0 or later
-        </li>
-        <li>
-          <div>
-            The <code>gh-aw</code> extension installed:
-            <div class="code-block" style="margin-top: 8px;">
-              <pre>gh extension install github/gh-aw</pre>
-              <button class="copy-btn" data-id="copy-prereq" onclick="copyCode(this)">Copy</button>
-            </div>
-          </div>
-        </li>
-        <li>
-          A <a href="https://docs.github.com/en/issues/planning-and-tracking-with-projects" target="_blank" rel="noopener noreferrer">GitHub Project</a> (v2) linked to your repository
-        </li>
+        <li><a href="https://cli.github.com" target="_blank" rel="noopener noreferrer">GitHub CLI</a> (<code>gh</code>), version 2.0 or later</li>
+        <li>The <a href="https://github.com/github/gh-aw" target="_blank" rel="noopener noreferrer"><code>gh-aw</code></a> extension (install below)</li>
+        <li>A <a href="https://docs.github.com/en/issues/planning-and-tracking-with-projects" target="_blank" rel="noopener noreferrer">GitHub Project</a> (v2) linked to your repository</li>
       </ul>
+      <div class="code-block" style="margin-top: 20px; max-width: 640px;">
+        <pre>gh extension install github/gh-aw</pre>
+        <button class="copy-btn" data-id="copy-prereq" onclick="copyCode(this)">Copy</button>
+      </div>
     </div>
   </section>
 
@@ -782,10 +774,10 @@ git push</pre>
   <footer>
     <div class="container">
       <div class="footer-links">
-        <a href="https://github.com/e-straight/heartbeat" target="_blank" rel="noopener noreferrer" data-id="footer-repo">Repository</a>
-        <a href="https://github.com/e-straight/heartbeat/blob/main/LICENSE" target="_blank" rel="noopener noreferrer" data-id="footer-license">MIT License</a>
+        <a href="https://github.com/e-straight/heartbeat" target="_blank" rel="noopener noreferrer">Repository</a>
+        <a href="https://github.com/e-straight/heartbeat/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">MIT License</a>
       </div>
-      <p>Built with <a href="https://github.com/github/gh-aw" target="_blank" rel="noopener noreferrer" data-id="footer-gh-aw">gh-aw</a>: distributable agentic workflows for GitHub</p>
+      <p>Built with <a href="https://github.com/github/gh-aw" target="_blank" rel="noopener noreferrer">gh-aw</a>: distributable agentic workflows for GitHub</p>
     </div>
   </footer>
 
@@ -794,9 +786,13 @@ git push</pre>
     function copyCode(btn) {
       var pre = btn.parentElement.querySelector('pre') || btn.parentElement.querySelector('code');
       var text = pre.textContent;
+      var id = btn.getAttribute('data-id') || 'unknown';
       navigator.clipboard.writeText(text).then(function() {
         btn.textContent = 'Copied!';
         btn.classList.add('copied');
+        if (window.appInsights) {
+          appInsights.trackEvent({ name: 'copy_code' }, { buttonId: id, text: text.slice(0, 120) });
+        }
         setTimeout(function() {
           btn.textContent = 'Copy';
           btn.classList.remove('copied');
