@@ -11,6 +11,8 @@ permissions:
   contents: read
   issues: read
   pull-requests: read
+env:
+  GH_AW_TARGET_PROJECT: ${{ secrets.GH_AW_TARGET_PROJECT }}
 tools:
   github:
     toolsets: [default, projects]
