@@ -8,7 +8,7 @@ Built with [gh-aw](https://github.com/github/gh-aw): distributable agentic workf
 
 ```sh
 # Install the gh-aw extension
-gh extension install e-straight/gh-aw
+gh extension install github/gh-aw
 
 # Add the workflow to your repo
 gh aw add-wizard e-straight/heartbeat/heartbeat
