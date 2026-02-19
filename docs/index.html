@@ -639,17 +639,23 @@
           <div class="step-number">3</div>
           <div class="step-content">
             <h3>Configure your project</h3>
-            <p>Set the required secrets in your repository so the workflow can post status updates.</p>
+            <p>Select your target project and set the required secrets so the workflow can post status updates.</p>
             <div class="code-block">
-              <pre><span class="comment"># Set your project board URL</span>
-gh aw secrets set GH_AW_TARGET_PROJECT \
-  --value "https://github.com/users/YOUR_USER/projects/YOUR_PROJECT_NUMBER"</pre>
+              <pre><span class="comment"># List your projects and pick one</span>
+gh api graphql -f query='{ viewer { projectsV2(first: 20) { nodes { title number url } } } }' \
+  --jq '.data.viewer.projectsV2.nodes[] | "#\(.number) \(.title) → \(.url)"'</pre>
               <button class="copy-btn" data-id="copy-step-2" onclick="copyCode(this)">Copy</button>
+            </div>
+            <div class="code-block">
+              <pre><span class="comment"># Set the project URL from the output above</span>
+gh aw secrets set GH_AW_TARGET_PROJECT \
+  --value "https://github.com/users/YOUR_USER/projects/YOUR_NUMBER"</pre>
+              <button class="copy-btn" data-id="copy-step-3" onclick="copyCode(this)">Copy</button>
             </div>
             <div class="code-block">
               <pre><span class="comment"># Set the token you created in Step 2</span>
 gh aw secrets set GH_AW_PROJECT_GITHUB_TOKEN --value "ghp_your_token_here"</pre>
-              <button class="copy-btn" data-id="copy-step-3" onclick="copyCode(this)">Copy</button>
+              <button class="copy-btn" data-id="copy-step-4" onclick="copyCode(this)">Copy</button>
             </div>
           </div>
         </div>
