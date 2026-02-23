@@ -14,7 +14,7 @@ gh extension install github/gh-aw
 gh aw add-wizard e-straight/heartbeat/heartbeat
 
 # Set your project board URL
-gh aw secrets set GH_AW_TARGET_PROJECT \
+gh variable set GH_AW_TARGET_PROJECT \
   --value "https://github.com/users/YOUR_USER/projects/YOUR_PROJECT_NUMBER"
 
 # Set a personal access token with project + read:org scopes

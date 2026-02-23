@@ -653,7 +653,7 @@ data=$(gh api graphql \
 IFS=$'\n'
 select label in $(echo "$data" | cut -f1); do
   url=$(echo "$data" | sed -n "${REPLY}p" | cut -f2)
-  gh aw secrets set GH_AW_TARGET_PROJECT --value "$url"
+  gh variable set GH_AW_TARGET_PROJECT --value "$url"
   break
 done</pre>
               <button class="copy-btn" data-id="copy-step-3" onclick="copyCode(this)">Copy</button>
