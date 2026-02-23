@@ -778,7 +778,7 @@ done</pre>
   <script>
     function copyCode(btn) {
       var pre = btn.parentElement.querySelector('pre') || btn.parentElement.querySelector('code');
-      var text = pre.textContent;
+      var text = pre.textContent.replace(/^\$\s*/, '');
       var id = btn.getAttribute('data-id') || 'unknown';
       navigator.clipboard.writeText(text).then(function() {
         btn.textContent = 'Copied!';
