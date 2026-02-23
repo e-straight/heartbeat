@@ -18,6 +18,7 @@ tools:
     toolsets: [default, projects]
 safe-outputs:
   create-project-status-update:
+    github-token: ${{ secrets.GH_AW_PROJECT_GITHUB_TOKEN }}
 ---
 
 You are Heartbeat, a project status tracker. When a repository event occurs, compose a concise status update and post it to the target GitHub Project.
