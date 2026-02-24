@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+    paths:
+      - "workflows/**"
+      - ".github/workflows/ci.yml"
+  pull_request:
+    paths:
+      - "workflows/**"
+      - ".github/workflows/ci.yml"
+
+jobs:
+  compile:
+    name: Validate workflow definition
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: github/gh-aw/actions/setup-cli@main
+        with:
+          version: v0.49.5
+
+      - name: Compile (strict, validate, no emit)
+        run: gh aw compile --dir workflows --strict --no-emit --validate --verbose
