@@ -13,9 +13,11 @@ gh extension install github/gh-aw
 # Add the workflow to your repo
 gh aw add-wizard e-straight/heartbeat/heartbeat
 
-# Set your project board URL
+# Set your project board URL (run from inside your repo)
+repo=$(gh repo view --json nameWithOwner -q .nameWithOwner)
 gh variable set GH_AW_TARGET_PROJECT \
-  --value "https://github.com/users/YOUR_USER/projects/YOUR_PROJECT_NUMBER"
+  -b "https://github.com/users/YOUR_USER/projects/YOUR_PROJECT_NUMBER" \
+  -R "$repo"
 
 # Set a personal access token with project + read:org scopes
 gh aw secrets set GH_AW_PROJECT_GITHUB_TOKEN --value "ghp_your_token_here"
