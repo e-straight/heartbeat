@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Heartbeat 💓 | Agentic Workflow</title>
-  <meta name="description" content="AI-powered GitHub project status updates. Automatically post summaries when PRs merge, issues close, or comments are posted.">
+  <meta name="description" content="AI-powered GitHub project status updates. Automatically post summaries for PR lifecycle events, code reviews, issue changes, comments, and releases.">
   <style>
     /* ===== Reset & Custom Properties ===== */
     *, *::before, *::after {
@@ -702,6 +702,36 @@ done</pre>
           </div>
           <h3>Comments Posted</h3>
           <p>New comments on issues or PRs are captured and posted as status updates, keeping your project board in sync with every conversation.</p>
+        </div>
+
+        <!-- PR Lifecycle -->
+        <div class="feature-card">
+          <div class="feature-icon">
+            <!-- Octicon: git-pull-request -->
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1.5 3.25a2.25 2.25 0 1 1 3 2.122v5.256a2.251 2.251 0 1 1-1.5 0V5.372A2.25 2.25 0 0 1 1.5 3.25Zm5.677-.177L9.573.677A.25.25 0 0 1 10 .854V2.5h1A2.5 2.5 0 0 1 13.5 5v5.628a2.251 2.251 0 1 1-1.5 0V5a1 1 0 0 0-1-1h-1v1.646a.25.25 0 0 1-.427.177L7.177 3.427a.25.25 0 0 1 0-.354ZM3.75 2.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm0 9.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm8.25.75a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Z"/></svg>
+          </div>
+          <h3>PR Lifecycle</h3>
+          <p>Track pull requests from creation through review — opened, marked ready for review, and review requests are all captured as project updates.</p>
+        </div>
+
+        <!-- Code Reviews -->
+        <div class="feature-card">
+          <div class="feature-icon">
+            <!-- Octicon: code-review -->
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1.75 1h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 13H8.061l-2.574 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25v-8.5C0 1.784.784 1 1.75 1ZM1.5 2.75v8.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25H1.75a.25.25 0 0 0-.25.25Zm5.28 1.72a.75.75 0 0 1 0 1.06L5.31 7l1.47 1.47a.751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018l-2-2a.75.75 0 0 1 0-1.06l2-2a.75.75 0 0 1 1.06 0Zm2.44 0a.75.75 0 0 1 1.06 0l2 2a.75.75 0 0 1 0 1.06l-2 2a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042L10.69 7 9.22 5.53a.75.75 0 0 1 0-1.06Z"/></svg>
+          </div>
+          <h3>Code Reviews</h3>
+          <p>Review submissions and inline code comments are posted as status updates, capturing approvals, change requests, and line-level feedback.</p>
+        </div>
+
+        <!-- Release Published -->
+        <div class="feature-card">
+          <div class="feature-icon">
+            <!-- Octicon: tag -->
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1 7.775V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 0 1 0 2.474l-5.026 5.026a1.75 1.75 0 0 1-2.474 0l-6.25-6.25A1.752 1.752 0 0 1 1 7.775Zm1.5 0c0 .066.026.13.073.177l6.25 6.25a.25.25 0 0 0 .354 0l5.025-5.025a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.177-.073H2.75a.25.25 0 0 0-.25.25ZM6 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg>
+          </div>
+          <h3>Release Published</h3>
+          <p>When a release is published, the workflow posts a summary with the tag, author, and changelog highlights to your project board.</p>
         </div>
       </div>
     </div>

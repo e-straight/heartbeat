@@ -22,7 +22,7 @@
 # For more information: https://github.github.com/gh-aw/introduction/overview/
 #
 #
-# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"87c02b437c9a72c74a58173a1ec1dbb9e34fe3af6a091c95bcc17cb356fc594f","compiler_version":"v0.49.5"}
+# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"9c7313114029ef01792f5d64bcd38666a728766e20413631ee0b747b5b9ed091","compiler_version":"v0.49.5"}
 
 name: "Heartbeat"
 "on":
@@ -36,6 +36,18 @@ name: "Heartbeat"
   pull_request:
     types:
     - closed
+    - opened
+    - ready_for_review
+    - review_requested
+  pull_request_review:
+    types:
+    - submitted
+  pull_request_review_comment:
+    types:
+    - created
+  release:
+    types:
+    - published
 
 permissions: {}
 

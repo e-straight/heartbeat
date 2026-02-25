@@ -32,9 +32,15 @@ git push
 
 - **PR merged**: summarizes the change, author, reviewers, and target branch
 - **PR closed without merge**: notes it wasn't merged and why
+- **PR opened**: notes when new work begins with author and branch info
+- **PR ready for review**: signals when a draft PR is ready for feedback
+- **Review requested**: tracks who's being asked to review
+- **Review submitted**: captures approvals, change requests, and review comments
+- **Inline review comment**: tracks line-level code review feedback with file path context
 - **Issue closed**: captures resolution, who closed it, and assignees
 - **Issue edited**: reports what changed (title, body, labels)
 - **Comments**: summarizes new comments on issues and PRs with a direct link
+- **Release published**: summarizes shipped releases with tag and changelog
 
 ## Prerequisites 📋
 

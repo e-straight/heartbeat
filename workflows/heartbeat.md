@@ -4,9 +4,15 @@ on:
   issues:
     types: [closed, edited]
   pull_request:
-    types: [closed]
+    types: [closed, opened, ready_for_review, review_requested]
+  pull_request_review:
+    types: [submitted]
+  pull_request_review_comment:
+    types: [created]
   issue_comment:
     types: [created]
+  release:
+    types: [published]
 permissions:
   contents: read
   issues: read
@@ -41,9 +47,15 @@ Do not proceed with any status update.
 
 Read the GitHub event context to determine which event fired:
 - `pull_request` with action `closed`
+- `pull_request` with action `opened`
+- `pull_request` with action `ready_for_review`
+- `pull_request` with action `review_requested`
+- `pull_request_review` with action `submitted`
+- `pull_request_review_comment` with action `created`
 - `issues` with action `closed`
 - `issues` with action `edited`
 - `issue_comment` with action `created`
+- `release` with action `published`
 
 ## Step 3: Gather details and compose the status update
 
@@ -68,6 +80,54 @@ Query the pull request via GitHub MCP to check the `merged` field.
   Example: "PR #14 closed without merge: Cookie sessions experiment — by @author. Superseded by JWT approach in PR #13."
 
   **Important:** Do NOT report a closed-without-merge PR as "merged."
+
+### If `pull_request` opened
+
+Compose a status update with:
+- Title and PR number
+- Author
+- Base/head branch
+- One-sentence summary of what the PR introduces (from the PR body)
+
+Example: "PR #18 opened: Add rate limiting middleware — by @author. Branches `feature/rate-limit` → `main`. Introduces token bucket rate limiting for all API endpoints."
+
+### If `pull_request` ready_for_review
+
+Compose a status update noting the transition from draft to ready:
+- Title and PR number
+- Author
+- Note that it was moved from draft to ready for review
+
+Example: "PR #18 ready for review: Add rate limiting middleware — by @author. Transitioned from draft to ready for review."
+
+### If `pull_request` review_requested
+
+Compose a status update with:
+- Title and PR number
+- Who requested the review (the sender in the event payload)
+- Who was requested as reviewer
+
+Example: "PR #18 review requested: Add rate limiting middleware — @author requested review from @reviewer."
+
+### If `pull_request_review` submitted
+
+Compose a status update with:
+- PR title and number
+- Reviewer
+- Review state (approved, changes_requested, or commented)
+- One-sentence summary of the review (from the review body, if present)
+
+Example: "Review on PR #18 (Add rate limiting middleware) by @reviewer: approved. Looks good, suggested minor naming improvements."
+
+### If `pull_request_review_comment` created
+
+Compose a status update with:
+- PR title and number
+- Commenter
+- File path and line number
+- One-sentence summary of the inline comment
+
+Example: "Inline comment on PR #18 (Add rate limiting middleware) by @reviewer on `src/middleware/rate-limit.ts:42`: Suggested using a sliding window instead of fixed window for the token bucket."
 
 ### If `issues` closed
 
@@ -102,6 +162,15 @@ Compose a status update with:
 Example (issue): "New comment on issue #9 (API Rate Limiting) by @user: Proposed using token bucket algorithm for the rate limiter. https://github.com/org/repo/issues/9#issuecomment-123"
 
 Example (PR): "New comment on PR #13 (JWT session management) by @reviewer: Suggested adding refresh token rotation. https://github.com/org/repo/pull/13#issuecomment-456"
+
+### If `release` published
+
+Compose a status update with:
+- Release name or tag
+- Author
+- One-sentence summary of what shipped (from the release body)
+
+Example: "Release v1.2.0 published by @author: Adds rate limiting, JWT refresh tokens, and improved error handling."
 
 ## Step 4: Post the status update
 
