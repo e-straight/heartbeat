@@ -13,6 +13,9 @@ on:
     types: [created]
   release:
     types: [published]
+concurrency:
+  group: "gh-aw-${{ github.workflow }}-${{ github.event_name }}-${{ github.event.issue.number || github.event.pull_request.number }}"
+  cancel-in-progress: true
 permissions:
   contents: read
   issues: read
@@ -61,21 +64,21 @@ Read the GitHub event context to determine which event fired:
 
 ### If `pull_request` closed
 
-Query the pull request via GitHub MCP to check the `merged` field.
+Query the pull request via GitHub MCP to check the `merged` field. Also read the PR's comments and review threads to understand the full context of the change or closure.
 
 - **If merged:** Compose a status update with:
   - Title and PR number
   - Author
   - Reviewer(s) (if any)
   - Base/head branch
-  - One-sentence summary of the change
+  - One-sentence summary of the change (informed by PR body, comments, and review discussions)
 
   Example: "PR #42 merged: Add JWT session management — by @author, reviewed by @reviewer. Merges `feature/jwt` into `main`. Implements token-based auth replacing cookie sessions."
 
-- **If closed without merge:** Compose a status update noting it was **not** merged:
+- **If closed without merge:** Read the most recent comments to determine why the PR was closed. Compose a status update noting it was **not** merged:
   - Title and PR number
   - Author
-  - Reason for closing if discernible from the PR body or comments
+  - Reason for closing based on the closing comment or recent discussion (do not guess — use the actual stated reason)
 
   Example: "PR #14 closed without merge: Cookie sessions experiment — by @author. Superseded by JWT approach in PR #13."
 
@@ -131,13 +134,18 @@ Example: "Inline comment on PR #18 (Add rate limiting middleware) by @reviewer o
 
 ### If `issues` closed
 
+Read the issue's comments to understand the context of closure. Pay special attention to the most recent comment (often the closing comment) and any linked pull requests that may have resolved the issue.
+
 Compose a status update with:
 - Issue title and number
 - Who closed it
-- Resolution (completed, won't fix, duplicate — infer from labels or closing comment)
+- Resolution — determine from the closing comment, labels, and linked PRs whether the issue was completed, closed as not planned, a duplicate, or something else. Do not default to "completed" without evidence.
 - Assignees (if any)
+- One-sentence summary of the resolution context (from comments or linked PRs, not just the issue body)
 
-Example: "Issue #5 closed: Implement rate limiting middleware — closed by @user, assigned to @dev1, @dev2. Resolution: completed."
+Example (completed): "Issue #5 closed: Implement rate limiting middleware — closed by @user, assigned to @dev1, @dev2. Resolution: completed via PR #18."
+
+Example (not planned): "Issue #19 closed: README.md improvements — closed by @user. Resolution: closed as not planned — repo is a demo and doesn’t need a README."
 
 ### If `issues` edited
 
