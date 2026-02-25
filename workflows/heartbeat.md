@@ -13,6 +13,9 @@ on:
     types: [created]
   release:
     types: [published]
+concurrency:
+  group: "gh-aw-${{ github.workflow }}-${{ github.event_name }}-${{ github.event.issue.number || github.event.pull_request.number }}"
+  cancel-in-progress: true
 permissions:
   contents: read
   issues: read
