@@ -11,8 +11,7 @@ Never miss a beat. Automatically surface and summarize what's actually happening
 gh extension install github/gh-aw
 
 # Add the workflows to your repo
-gh aw add-wizard e-straight/heartbeat/reporting
-gh aw add-wizard e-straight/heartbeat/daily-summary
+gh aw add-wizard e-straight/heartbeat/reporting e-straight/heartbeat/daily-summary
 
 # Set your project board URL (run from inside your repo)
 repo=$(gh repo view --json nameWithOwner -q .nameWithOwner)
