@@ -567,6 +567,69 @@
     </div>
   </section>
 
+  <!-- ===== Install ===== -->
+  <section class="setup">
+    <div class="container">
+      <p class="section-label">Get started</p>
+      <h2 class="section-title">Install in three steps</h2>
+      <p class="section-subtitle">Add the daily summary to your repository in under five minutes. No code changes, no app installations.</p>
+
+      <div class="steps-grid">
+        <!-- Step 1 -->
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Install the workflow</h3>
+            <p>Use the <code>gh-aw</code> extension to add the daily summary workflow to your repository.</p>
+            <div class="code-block">
+              <pre>gh aw add-wizard e-straight/heartbeat/daily-summary</pre>
+              <button class="copy-btn" data-id="copy-step-1" onclick="copyCode(this)">Copy</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>Create and set your token</h3>
+            <p>You need a personal access token so the workflow can post to your project board. Click the button below to create one with the correct scopes (<strong>project</strong> and <strong>read:org</strong>), copy it, then paste it into the command.</p>
+            <a href="https://github.com/settings/tokens/new?description=gh-aw-reporting&amp;scopes=project,read:org" target="_blank" rel="noopener noreferrer" class="token-btn" data-id="cta-create-token">Create token (scopes pre-selected)</a>
+            <div class="code-block">
+              <pre><span class="comment"># Set the token you just created</span>
+gh aw secrets set GH_AW_PROJECT_GITHUB_TOKEN --value "ghp_your_token_here"</pre>
+              <button class="copy-btn" data-id="copy-step-2" onclick="copyCode(this)">Copy</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>Select your project</h3>
+            <p>Pick the GitHub project board you want the heartbeat posted to.</p>
+            <div class="code-block">
+              <pre><span class="comment"># Select your target project</span>
+data=$(gh api graphql \
+  -f query='{ viewer { projectsV2(first: 20) { nodes { title number url } } } }' \
+  --jq '.data.viewer.projectsV2.nodes[] | "\(.title)\t\(.url)"')
+IFS=$'\n'
+select label in $(echo "$data" | cut -f1); do
+  url=$(echo "$data" | sed -n "${REPLY}p" | cut -f2)
+  repo=$(gh repo view --json nameWithOwner -q .nameWithOwner)
+  gh variable set GH_AW_TARGET_PROJECT -b "$url" -R "$repo"
+  break
+done</pre>
+              <button class="copy-btn" data-id="copy-step-3" onclick="copyCode(this)">Copy</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- ===== How It Works ===== -->
   <section class="features">
     <div class="container">
@@ -663,69 +726,6 @@
       <div class="schedule-card">
         <p>The workflow is triggered by a cron schedule: <code>0 8 * * *</code> — that's every day at midnight Pacific time (08:00 UTC).</p>
         <p>It is also available via <code>workflow_dispatch</code>, so you can trigger it manually at any time for testing or on-demand summaries.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== Install ===== -->
-  <section class="setup">
-    <div class="container">
-      <p class="section-label">Get started</p>
-      <h2 class="section-title">Install in three steps</h2>
-      <p class="section-subtitle">Add the daily summary to your repository in under five minutes. No code changes, no app installations.</p>
-
-      <div class="steps-grid">
-        <!-- Step 1 -->
-        <div class="step-card">
-          <div class="step-number">1</div>
-          <div class="step-content">
-            <h3>Install the workflow</h3>
-            <p>Use the <code>gh-aw</code> extension to add the daily summary workflow to your repository.</p>
-            <div class="code-block">
-              <pre>gh aw add-wizard e-straight/heartbeat/reporting e-straight/heartbeat/daily-summary</pre>
-              <button class="copy-btn" data-id="copy-step-1" onclick="copyCode(this)">Copy</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Step 2 -->
-        <div class="step-card">
-          <div class="step-number">2</div>
-          <div class="step-content">
-            <h3>Create and set your token</h3>
-            <p>You need a personal access token so the workflow can post to your project board. Click the button below to create one with the correct scopes (<strong>project</strong> and <strong>read:org</strong>), copy it, then paste it into the command.</p>
-            <a href="https://github.com/settings/tokens/new?description=gh-aw-reporting&amp;scopes=project,read:org" target="_blank" rel="noopener noreferrer" class="token-btn" data-id="cta-create-token">Create token (scopes pre-selected)</a>
-            <div class="code-block">
-              <pre><span class="comment"># Set the token you just created</span>
-gh aw secrets set GH_AW_PROJECT_GITHUB_TOKEN --value "ghp_your_token_here"</pre>
-              <button class="copy-btn" data-id="copy-step-2" onclick="copyCode(this)">Copy</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Step 3 -->
-        <div class="step-card">
-          <div class="step-number">3</div>
-          <div class="step-content">
-            <h3>Select your project</h3>
-            <p>Pick the GitHub project board you want the heartbeat posted to.</p>
-            <div class="code-block">
-              <pre><span class="comment"># Select your target project</span>
-data=$(gh api graphql \
-  -f query='{ viewer { projectsV2(first: 20) { nodes { title number url } } } }' \
-  --jq '.data.viewer.projectsV2.nodes[] | "\(.title)\t\(.url)"')
-IFS=$'\n'
-select label in $(echo "$data" | cut -f1); do
-  url=$(echo "$data" | sed -n "${REPLY}p" | cut -f2)
-  repo=$(gh repo view --json nameWithOwner -q .nameWithOwner)
-  gh variable set GH_AW_TARGET_PROJECT -b "$url" -R "$repo"
-  break
-done</pre>
-              <button class="copy-btn" data-id="copy-step-3" onclick="copyCode(this)">Copy</button>
-            </div>
-          </div>
-        </div>
-
       </div>
     </div>
   </section>
