@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Heartbeat 💓 | Agentic Workflow</title>
-  <meta name="description" content="AI-powered GitHub project status updates. Automatically post summaries for PR lifecycle events, code reviews, issue changes, comments, and releases.">
+  <title>Reporting | Heartbeat</title>
+  <meta name="description" content="Event-driven GitHub Project status updates. Automatically post summaries for PR lifecycle events, code reviews, issue changes, comments, and releases.">
   <style>
     /* ===== Reset & Custom Properties ===== */
     *, *::before, *::after {
@@ -144,79 +144,6 @@
       max-width: 640px;
       margin: 0 auto 48px;
       line-height: 1.5;
-    }
-
-    /* Terminal Mockup */
-    .terminal-wrapper {
-      max-width: 620px;
-      margin: 0 auto;
-      border-radius: 12px;
-      border: 1px solid rgba(215, 122, 147, 0.2);
-      background: var(--bg-secondary);
-      overflow: hidden;
-      box-shadow:
-        0 0 40px rgba(215, 122, 147, 0.06),
-        0 0 80px rgba(215, 122, 147, 0.03);
-      animation: terminal-glow 4s ease-in-out infinite;
-    }
-
-    @keyframes terminal-glow {
-      0%, 100% {
-        box-shadow:
-          0 0 40px rgba(215, 122, 147, 0.06),
-          0 0 80px rgba(215, 122, 147, 0.03);
-        border-color: rgba(215, 122, 147, 0.2);
-      }
-      50% {
-        box-shadow:
-          0 0 60px rgba(215, 122, 147, 0.12),
-          0 0 120px rgba(215, 122, 147, 0.06);
-        border-color: rgba(215, 122, 147, 0.35);
-      }
-    }
-
-    .terminal-header {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 12px 16px;
-      background: rgba(255, 255, 255, 0.03);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    }
-
-    .terminal-dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-    }
-
-    .terminal-dot.red { background: #ff5f57; }
-    .terminal-dot.yellow { background: #febc2e; }
-    .terminal-dot.green { background: #28c840; }
-
-    .terminal-title {
-      flex: 1;
-      text-align: center;
-      font-size: 0.75rem;
-      color: var(--text-muted);
-    }
-
-    .terminal-body {
-      padding: 20px 24px;
-      position: relative;
-    }
-
-    .terminal-body code {
-      display: block;
-      font-size: 0.9375rem;
-      color: var(--text-primary);
-      white-space: nowrap;
-      overflow-x: auto;
-    }
-
-    .terminal-body .prompt {
-      color: var(--accent);
-      user-select: none;
     }
 
     /* ===== Features ===== */
@@ -421,94 +348,6 @@
       box-shadow: 0 0 20px rgba(215, 122, 147, 0.25);
     }
 
-    /* ===== Prerequisites ===== */
-    .prereqs {
-      background: var(--bg-primary);
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
-      padding: 60px 0;
-    }
-
-    .prereqs .container > .section-subtitle {
-      margin-bottom: 32px;
-    }
-
-    .prereqs-list {
-      list-style: none;
-      display: grid;
-      gap: 16px;
-      max-width: 640px;
-    }
-
-    .prereqs-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      font-size: 0.9375rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
-
-    .prereqs-list li::before {
-      content: '';
-      display: block;
-      width: 6px;
-      height: 6px;
-      background: var(--accent);
-      border-radius: 50%;
-      margin-top: 9px;
-      flex-shrink: 0;
-    }
-
-    .prereqs-list code {
-      background: rgba(255, 255, 255, 0.06);
-      padding: 2px 6px;
-      border-radius: 4px;
-      font-size: 0.8125rem;
-      color: var(--text-primary);
-    }
-
-    /* ===== Why Section ===== */
-    .why {
-      background: var(--bg-gradient);
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
-    }
-
-    .why .container > .section-subtitle {
-      margin-bottom: 48px;
-    }
-
-    .why-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-    }
-
-    .why-card {
-      padding: 32px;
-      border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      background: var(--bg-secondary);
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .why-card:hover {
-      border-color: rgba(215, 122, 147, 0.3);
-      box-shadow: 0 0 30px rgba(215, 122, 147, 0.05);
-    }
-
-    .why-card h3 {
-      font-size: 1.125rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-      color: var(--text-primary);
-    }
-
-    .why-card p {
-      font-size: 0.9375rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
-
     /* ===== Site Navigation ===== */
     .site-nav {
       position: fixed;
@@ -592,94 +431,6 @@
       color: var(--accent);
     }
 
-    /* ===== Workflow Overview Cards ===== */
-    .workflows-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-      gap: 24px;
-    }
-
-    .workflow-card {
-      padding: 36px;
-      border-radius: 14px;
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      background: var(--bg-secondary);
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .workflow-card:hover {
-      border-color: rgba(215, 122, 147, 0.3);
-      box-shadow: 0 0 40px rgba(215, 122, 147, 0.08);
-    }
-
-    .workflow-badge {
-      display: inline-block;
-      padding: 4px 12px;
-      font-size: 0.6875rem;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: var(--accent);
-      background: rgba(215, 122, 147, 0.1);
-      border-radius: 20px;
-      margin-bottom: 16px;
-    }
-
-    .workflow-card h3 {
-      font-size: 1.375rem;
-      font-weight: 700;
-      color: var(--text-primary);
-      margin-bottom: 12px;
-    }
-
-    .workflow-card > p {
-      font-size: 0.9375rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
-
-    .workflow-card ul {
-      list-style: none;
-      margin-bottom: 24px;
-    }
-
-    .workflow-card ul li {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      font-size: 0.875rem;
-      color: var(--text-muted);
-      line-height: 1.5;
-      padding: 4px 0;
-    }
-
-    .workflow-card ul li::before {
-      content: '';
-      display: block;
-      width: 5px;
-      height: 5px;
-      background: var(--accent);
-      border-radius: 50%;
-      margin-top: 7px;
-      flex-shrink: 0;
-    }
-
-    .card-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.875rem;
-      font-weight: 600;
-      color: var(--accent);
-      transition: gap 0.2s ease;
-    }
-
-    .card-link:hover {
-      gap: 10px;
-      color: var(--accent-hover);
-    }
-
     /* ===== Footer ===== */
     footer {
       padding: 40px 0;
@@ -733,15 +484,7 @@
         font-size: 1rem;
       }
 
-      .terminal-body code {
-        font-size: 0.8125rem;
-      }
-
       .features-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .workflows-grid {
         grid-template-columns: 1fr;
       }
 
@@ -766,8 +509,8 @@
       <svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 4.5L6 8l3.5-3.5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </button>
     <div class="nav-menu">
-      <a href="index.html" class="nav-link active">Home</a>
-      <a href="reporting.html" class="nav-link">Reporting</a>
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="reporting.html" class="nav-link active">Reporting</a>
       <a href="daily-summary.html" class="nav-link">Daily Summary</a>
     </div>
   </nav>
@@ -776,37 +519,144 @@
   <section class="hero">
     <div class="container">
       <h1>
-        <span class="accent">Heartbeat</span> 💓
+        <span class="accent">Reporting</span>
       </h1>
 
       <p class="subtitle">
-        Never miss a beat. Automatically surface and summarize what's
-        actually happening in your codebase, powered by GitHub
-        Agentic Workflows.
+        Event-driven status updates for your GitHub Project board. Every meaningful repository event triggers an AI-generated summary.
       </p>
+    </div>
+  </section>
 
-      <div class="terminal-wrapper">
-        <div class="terminal-header">
-          <span class="terminal-dot red"></span>
-          <span class="terminal-dot yellow"></span>
-          <span class="terminal-dot green"></span>
-          <span class="terminal-title">Terminal</span>
-          <span style="width: 36px;"></span>
+  <!-- ===== Tracked Events ===== -->
+  <section class="features">
+    <div class="container">
+      <p class="section-label">Tracked events</p>
+      <h2 class="section-title">Every event that matters, captured</h2>
+      <p class="section-subtitle">Each repository event triggers a concise, AI-generated status update posted directly to your GitHub Project board.</p>
+
+      <div class="features-grid">
+
+        <!-- PR Merged -->
+        <div class="feature-card">
+          <div class="feature-icon">
+            <!-- Octicon: git-merge -->
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5.45 5.154A4.25 4.25 0 0 0 9.25 7.5h1.378a2.251 2.251 0 1 1 0 1.5H9.25A5.734 5.734 0 0 1 5 7.123v3.505a2.25 2.25 0 1 1-1.5 0V5.372a2.25 2.25 0 1 1 1.95-.218ZM4.25 13.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm8-9a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM4.25 4a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z"/></svg>
+          </div>
+          <h3>PR Merged</h3>
+          <p>When a pull request merges, the workflow summarizes the change, author, reviewers, and target branch into a concise project update.</p>
         </div>
-        <div class="terminal-body">
-          <code><span class="prompt">$</span> gh aw add-wizard e-straight/heartbeat/reporting</code>
-          <code style="margin-top: 4px;"><span class="prompt">$</span> gh aw add-wizard e-straight/heartbeat/daily-summary</code>
+
+        <!-- PR Closed -->
+        <div class="feature-card">
+          <div class="feature-icon">
+            <!-- Octicon: git-pull-request-closed -->
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.25 1A2.25 2.25 0 0 1 4 5.372v5.256a2.251 2.251 0 1 1-1.5 0V5.372A2.251 2.251 0 0 1 3.25 1Zm9.5 5.5a.75.75 0 0 1 .75.75v3.378a2.251 2.251 0 1 1-1.5 0V7.25a.75.75 0 0 1 .75-.75Zm-2.03-5.273a.75.75 0 0 1 1.06 0l2 2a.75.75 0 0 1-1.06 1.06L12 3.56l-.72.72a.75.75 0 1 1-1.06-1.06ZM3.25 2.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm0 9.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm9.5 0a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Z"/></svg>
+          </div>
+          <h3>PR Closed</h3>
+          <p>Pull requests closed without merge are noted with the author and reason for closing, clearly distinguished from merged PRs.</p>
         </div>
+
+        <!-- PR Opened -->
+        <div class="feature-card">
+          <div class="feature-icon">
+            <!-- Octicon: git-pull-request -->
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1.5 3.25a2.25 2.25 0 1 1 3 2.122v5.256a2.251 2.251 0 1 1-1.5 0V5.372A2.25 2.25 0 0 1 1.5 3.25Zm5.677-.177L9.573.677A.25.25 0 0 1 10 .854V2.5h1A2.5 2.5 0 0 1 13.5 5v5.628a2.251 2.251 0 1 1-1.5 0V5a1 1 0 0 0-1-1h-1v1.646a.25.25 0 0 1-.427.177L7.177 3.427a.25.25 0 0 1 0-.354ZM3.75 2.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm0 9.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm8.25.75a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Z"/></svg>
+          </div>
+          <h3>PR Opened</h3>
+          <p>New pull requests trigger a status update with author, branch info, and a summary of the change from the PR body.</p>
+        </div>
+
+        <!-- Ready for Review -->
+        <div class="feature-card">
+          <div class="feature-icon">
+            <!-- Octicon: eye -->
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2c1.981 0 3.671.992 4.933 2.078 1.27 1.091 2.187 2.345 2.637 3.023a1.62 1.62 0 0 1 0 1.798c-.45.678-1.367 1.932-2.637 3.023C11.671 13.008 9.981 14 8 14c-1.981 0-3.671-.992-4.933-2.078C1.797 10.831.88 9.577.43 8.899a1.62 1.62 0 0 1 0-1.798c.45-.678 1.367-1.932 2.637-3.023C4.329 2.992 6.019 2 8 2ZM1.679 7.932a.12.12 0 0 0 0 .136c.411.622 1.241 1.75 2.366 2.717C5.176 11.758 6.527 12.5 8 12.5c1.473 0 2.825-.742 3.955-1.715 1.124-.967 1.954-2.096 2.366-2.717a.12.12 0 0 0 0-.136c-.412-.621-1.242-1.75-2.366-2.717C10.824 4.242 9.473 3.5 8 3.5c-1.473 0-2.824.742-3.955 1.715-1.124.967-1.954 2.096-2.366 2.717ZM8 10a2 2 0 1 1-.001-3.999A2 2 0 0 1 8 10Z"/></svg>
+          </div>
+          <h3>Ready for Review</h3>
+          <p>When a draft PR transitions to ready for review, the workflow captures the status change with author context.</p>
+        </div>
+
+        <!-- Review Requested -->
+        <div class="feature-card">
+          <div class="feature-icon">
+            <!-- Octicon: people -->
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 5.5a3.5 3.5 0 1 1 5.898 2.549 5.508 5.508 0 0 1 3.034 4.084.75.75 0 1 1-1.482.235 4.001 4.001 0 0 0-6.9 0 .75.75 0 0 1-1.482-.236A5.507 5.507 0 0 1 4.6 8.049 3.5 3.5 0 0 1 2 5.5ZM5.5 4a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm5.5-.5a.75.75 0 0 1 .75-.75 3.5 3.5 0 0 1 .898 6.886 5.527 5.527 0 0 1 2.1 3.265.75.75 0 1 1-1.482.236 4.002 4.002 0 0 0-2.308-2.99.75.75 0 0 1 .042-1.397A2 2 0 0 0 11.75 4.75.75.75 0 0 1 11 4Z"/></svg>
+          </div>
+          <h3>Review Requested</h3>
+          <p>Tracks when a review is requested, noting who requested it and who was asked to review.</p>
+        </div>
+
+        <!-- Review Submitted -->
+        <div class="feature-card">
+          <div class="feature-icon">
+            <!-- Octicon: code-review -->
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1.75 1h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 13H8.061l-2.574 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25v-8.5C0 1.784.784 1 1.75 1ZM1.5 2.75v8.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25H1.75a.25.25 0 0 0-.25.25Zm5.28 1.72a.75.75 0 0 1 0 1.06L5.31 7l1.47 1.47a.751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018l-2-2a.75.75 0 0 1 0-1.06l2-2a.75.75 0 0 1 1.06 0Zm2.44 0a.75.75 0 0 1 1.06 0l2 2a.75.75 0 0 1 0 1.06l-2 2a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042L10.69 7 9.22 5.53a.75.75 0 0 1 0-1.06Z"/></svg>
+          </div>
+          <h3>Review Submitted</h3>
+          <p>Review submissions are posted as status updates capturing approvals, change requests, and review feedback.</p>
+        </div>
+
+        <!-- Inline Comment -->
+        <div class="feature-card">
+          <div class="feature-icon">
+            <!-- Octicon: comment-discussion -->
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1.75 1h8.5c.966 0 1.75.784 1.75 1.75v5.5A1.75 1.75 0 0 1 10.25 10H7.061l-2.574 2.573A1.458 1.458 0 0 1 2 11.543V10h-.25A1.75 1.75 0 0 1 0 8.25v-5.5C0 1.784.784 1 1.75 1ZM1.5 2.75v5.5c0 .138.112.25.25.25h1a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h3.5a.25.25 0 0 0 .25-.25v-5.5a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25Zm13 2a.25.25 0 0 0-.25-.25h-.5a.75.75 0 0 1 0-1.5h.5c.966 0 1.75.784 1.75 1.75v5.5A1.75 1.75 0 0 1 14.25 12H14v1.543a1.458 1.458 0 0 1-2.487 1.03L9.22 12.28a.749.749 0 0 1 .326-1.275.749.749 0 0 1 .734.215l2.22 2.22V11.25a.75.75 0 0 1 .75-.75h1a.25.25 0 0 0 .25-.25Z"/></svg>
+          </div>
+          <h3>Inline Comment</h3>
+          <p>Line-level code review comments are captured with file path, line number, and a summary of the feedback.</p>
+        </div>
+
+        <!-- Issue Closed -->
+        <div class="feature-card">
+          <div class="feature-icon">
+            <!-- Octicon: check-circle -->
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 16A8 8 0 1 1 8 0a8 8 0 0 1 0 16zm3.78-9.72a.751.751 0 0 0-.018-1.042.751.751 0 0 0-1.042-.018L6.75 9.19 5.28 7.72a.751.751 0 0 0-1.042.018.751.751 0 0 0-.018 1.042l2 2a.75.75 0 0 0 1.06 0Z"/></svg>
+          </div>
+          <h3>Issue Closed</h3>
+          <p>Closed issues trigger a status post with the resolution, who closed it, assignees, and a summary.</p>
+        </div>
+
+        <!-- Issue Edited -->
+        <div class="feature-card">
+          <div class="feature-icon">
+            <!-- Octicon: pencil -->
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M11.013 1.427a1.75 1.75 0 0 1 2.474 0l1.086 1.086a1.75 1.75 0 0 1 0 2.474l-8.61 8.61c-.21.21-.47.364-.756.445l-3.251.93a.75.75 0 0 1-.927-.928l.929-3.25c.081-.286.235-.547.445-.758l8.61-8.61Zm.176 4.823L9.75 4.81l-6.286 6.287a.253.253 0 0 0-.064.108l-.558 1.953 1.953-.558a.253.253 0 0 0 .108-.064Zm1.238-3.763a.25.25 0 0 0-.354 0L10.811 3.75l1.439 1.44 1.263-1.263a.25.25 0 0 0 0-.354Z"/></svg>
+          </div>
+          <h3>Issue Edited</h3>
+          <p>When an issue is edited, the workflow reports what changed — title, body, or labels — with who made the edit.</p>
+        </div>
+
+        <!-- Comments -->
+        <div class="feature-card">
+          <div class="feature-icon">
+            <!-- Octicon: comment -->
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1 2.75C1 1.784 1.784 1 2.75 1h10.5c.966 0 1.75.784 1.75 1.75v7.5A1.75 1.75 0 0 1 13.25 12H9.06l-2.573 2.573A1.458 1.458 0 0 1 4 13.543V12H2.75A1.75 1.75 0 0 1 1 10.25Zm1.5 0v7.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h4.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25H2.75a.25.25 0 0 0-.25.25Z"/></svg>
+          </div>
+          <h3>Comments</h3>
+          <p>New comments on issues and PRs are summarized and posted as status updates with direct links.</p>
+        </div>
+
+        <!-- Release Published -->
+        <div class="feature-card">
+          <div class="feature-icon">
+            <!-- Octicon: tag -->
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1 7.775V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 0 1 0 2.474l-5.026 5.026a1.75 1.75 0 0 1-2.474 0l-6.25-6.25A1.752 1.752 0 0 1 1 7.775Zm1.5 0c0 .066.026.13.073.177l6.25 6.25a.25.25 0 0 0 .354 0l5.025-5.025a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.177-.073H2.75a.25.25 0 0 0-.25.25ZM6 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg>
+          </div>
+          <h3>Release Published</h3>
+          <p>When a release is published, the workflow posts a summary with the tag, author, and changelog highlights.</p>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- ===== Setup Steps ===== -->
+  <!-- ===== Install ===== -->
   <section class="setup">
     <div class="container">
       <p class="section-label">Get started</p>
-      <h2 class="section-title">Three steps to automated project updates</h2>
-      <p class="section-subtitle">Install in under five minutes. No code changes, no app installations, no third-party services.</p>
+      <h2 class="section-title">Install in three steps</h2>
+      <p class="section-subtitle">Add event-driven reporting to your repository in under five minutes. No code changes, no app installations.</p>
 
       <div class="steps-grid">
         <!-- Step 1 -->
@@ -814,10 +664,9 @@
           <div class="step-number">1</div>
           <div class="step-content">
             <h3>Install the workflow</h3>
-            <p>Use the <code>gh-aw</code> extension to add the workflow to your repository.</p>
+            <p>Use the <code>gh-aw</code> extension to add the reporting workflow to your repository.</p>
             <div class="code-block">
-              <pre>gh aw add-wizard e-straight/heartbeat/reporting
-gh aw add-wizard e-straight/heartbeat/daily-summary</pre>
+              <pre>gh aw add-wizard e-straight/heartbeat/reporting</pre>
               <button class="copy-btn" data-id="copy-step-1" onclick="copyCode(this)">Copy</button>
             </div>
           </div>
@@ -861,100 +710,6 @@ done</pre>
           </div>
         </div>
 
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== Workflows ===== -->
-  <section class="features">
-    <div class="container">
-      <p class="section-label">Workflows</p>
-      <h2 class="section-title">Two workflows, complete visibility</h2>
-      <p class="section-subtitle">Install one or both to keep your GitHub Project board in sync with everything happening in your codebase.</p>
-
-      <div class="workflows-grid">
-        <!-- Reporting -->
-        <div class="workflow-card">
-          <span class="workflow-badge">Event-driven</span>
-          <h3>Reporting</h3>
-          <p>Every meaningful repository event triggers an AI-generated status update on your GitHub Project board.</p>
-          <ul>
-            <li>PR merges, opens, reviews, and comments</li>
-            <li>Issue closes, edits, and comments</li>
-            <li>Release publications</li>
-          </ul>
-          <a href="reporting.html" class="card-link">View details <span aria-hidden="true">&rarr;</span></a>
-        </div>
-
-        <!-- Daily Summary -->
-        <div class="workflow-card">
-          <span class="workflow-badge">Scheduled</span>
-          <h3>Daily Summary</h3>
-          <p>A nightly digest of all status updates from the past 24 hours, grouped by category.</p>
-          <ul>
-            <li>Runs at midnight Pacific (08:00 UTC)</li>
-            <li>Groups updates by PRs, Issues, and Releases</li>
-            <li>Scannable summary posted to your board</li>
-          </ul>
-          <a href="daily-summary.html" class="card-link">View details <span aria-hidden="true">&rarr;</span></a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== Prerequisites ===== -->
-  <section class="prereqs">
-    <div class="container">
-      <p class="section-label">Before you begin</p>
-      <h2 class="section-title">Prerequisites</h2>
-      <p class="section-subtitle">Make sure you have these tools installed before running the setup commands.</p>
-
-      <ul class="prereqs-list">
-        <li><a href="https://cli.github.com" target="_blank" rel="noopener noreferrer">GitHub CLI</a> (<code>gh</code>), version 2.0 or later</li>
-        <li>A <a href="https://docs.github.com/en/issues/planning-and-tracking-with-projects" target="_blank" rel="noopener noreferrer">GitHub Project</a> (v2) linked to your repository</li>
-        <li>The <a href="https://github.com/github/gh-aw" target="_blank" rel="noopener noreferrer"><code>gh-aw</code></a> extension (install below)</li>
-      </ul>
-      <div class="code-block" style="margin-top: 20px; max-width: 640px;">
-        <pre>gh extension install github/gh-aw</pre>
-        <button class="copy-btn" data-id="copy-prereq" onclick="copyCode(this)">Copy</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== Why Agentic Workflows ===== -->
-  <section class="why">
-    <div class="container">
-      <p class="section-label">Why agentic workflows</p>
-      <h2 class="section-title">AI agents with guardrails, not blank checks</h2>
-      <p class="section-subtitle">The <code>gh-aw</code> framework treats AI agents as untrusted by default and enforces security at every layer.</p>
-
-      <div class="why-grid">
-        <div class="why-card">
-          <div class="feature-icon">
-            <!-- Octicon: shield-lock -->
-            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8.533.133a1.75 1.75 0 0 0-1.066 0l-5.25 1.68A1.75 1.75 0 0 0 1 3.48V7c0 1.566.32 3.182 1.303 4.682.983 1.498 2.585 2.813 5.032 3.855a1.697 1.697 0 0 0 1.33 0c2.447-1.042 4.049-2.357 5.032-3.855C14.68 10.182 15 8.566 15 7V3.48a1.75 1.75 0 0 0-1.217-1.667Zm-.61 1.429a.25.25 0 0 1 .153 0l5.25 1.68a.25.25 0 0 1 .174.238V7c0 1.358-.275 2.666-1.057 3.86-.784 1.194-2.121 2.34-4.366 3.297a.196.196 0 0 1-.154 0c-2.245-.956-3.582-2.104-4.366-3.298C2.775 9.666 2.5 8.36 2.5 7V3.48a.25.25 0 0 1 .174-.238Z"/></svg>
-          </div>
-          <h3>Least-privilege permissions</h3>
-          <p>Agents run with read-only permissions by default. Write operations are never granted directly. They flow through safe-output jobs with scoped, validated access.</p>
-        </div>
-
-        <div class="why-card">
-          <div class="feature-icon">
-            <!-- Octicon: check-circle -->
-            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 16A8 8 0 1 1 8 0a8 8 0 0 1 0 16zm3.78-9.72a.751.751 0 0 0-.018-1.042.751.751 0 0 0-1.042-.018L6.75 9.19 5.28 7.72a.751.751 0 0 0-1.042.018.751.751 0 0 0-.018 1.042l2 2a.75.75 0 0 0 1.06 0Z"/></svg>
-          </div>
-          <h3>Safe outputs</h3>
-          <p>Agent output is captured as structured data, scanned for threats like secret leaks and injection attacks, then executed by separate jobs, not by the agent itself.</p>
-        </div>
-
-        <div class="why-card">
-          <div class="feature-icon">
-            <!-- Octicon: lock -->
-            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4a4 4 0 0 1 8 0v2h.25c.966 0 1.75.784 1.75 1.75v5.5A1.75 1.75 0 0 1 12.25 15h-8.5A1.75 1.75 0 0 1 2 13.25v-5.5C2 6.784 2.784 6 3.75 6H4Zm8.25 3.5h-8.5a.25.25 0 0 0-.25.25v5.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-5.5a.25.25 0 0 0-.25-.25ZM10.5 6V4a2.5 2.5 0 1 0-5 0v2Z"/></svg>
-          </div>
-          <h3>Reproducible &amp; auditable</h3>
-          <p>Markdown workflows compile to pinned <code>.lock.yml</code> files with SHA-locked actions, validated schemas, and hardened configs. What you review is what runs.</p>
-        </div>
       </div>
     </div>
   </section>
